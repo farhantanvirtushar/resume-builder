@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="update-form">
+    <div class="title mat-h1">Update Profile</div>
+    <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()">
+      <mat-grid-list
+        cols="6"
+        rowHeight="77px"
+        (window:resize)="onResize($event)"
+      >
+        <mat-grid-tile [colspan]="col_span">
+          <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="name" type="text" required />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <!-- <mat-grid-tile [colspan]="col_span">
+          <mat-form-field appearance="outline">
+            <mat-label>National ID</mat-label>
+            <input matInput formControlName="nid" type="text" />
+          </mat-form-field>
+        </mat-grid-tile> -->
+
+        <!-- <mat-grid-tile [colspan]="col_span">
+          <mat-form-field appearance="outline">
+            <mat-label>Designation</mat-label>
+            <input matInput formControlName="designation" type="text" />
+          </mat-form-field>
+        </mat-grid-tile> -->
+
+        <!-- <mat-grid-tile [colspan]="col_span">
+            <mat-form-field appearance="fill">
+              <mat-label>Date Of Birth</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dob" />
+              <mat-hint>YYYY-MM-DD</mat-hint>
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile> -->
+
+        <!-- <mat-grid-tile [colspan]="col_span">
+          <div class="checkbox-container">
+            <mat-checkbox formControlName="passwordNeverExpires"
+              >Password Never Expires</mat-checkbox
+            >
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="col_span">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" required />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="col_span">
+          <mat-form-field appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" type="text" />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="col_span">
+          <mat-form-field appearance="outline">
+            <mat-label>Mobile</mat-label>
+            <input matInput formControlName="mobile" type="text" />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="col_span">
+          <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select matNativeControl formControlName="status" required>
+              <mat-option value="ACTIVE">ACTIVE</mat-option>
+              <mat-option value="INACTIVE">INACTIVE</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile> -->
+      </mat-grid-list>
+
+      <button mat-raised-button class="styled-button" type="submit">
+        <mat-icon class="material-icons-filled">save </mat-icon>
+        Save
+      </button>
+    </form>
+  </div>
+</div>
