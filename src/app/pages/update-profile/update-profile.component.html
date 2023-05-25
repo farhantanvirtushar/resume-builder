@@ -56,6 +56,32 @@
           </mat-grid-tile>
         </ng-container>
 
+        <mat-grid-tile [colspan]="6">
+          <div class="sub-title mat-h1">Experience</div>
+        </mat-grid-tile>
+
+        <ng-container formArrayName="experiences">
+          <ng-container class="experience" *ngFor="let experience of this.user.experiences; let i = index">
+            <ng-container formGroupName="{{i}}">
+              <mat-grid-tile [colspan]="col_span">
+                <mat-form-field appearance="outline">
+                  <mat-label>Company Name</mat-label>
+                  <input matInput formControlName="companyName" type="text" />
+                </mat-form-field>
+              </mat-grid-tile>
+            </ng-container>
+
+          </ng-container>
+        </ng-container>
+
+        <mat-grid-tile [colspan]="col_span">
+          <button mat-raised-button class="styled-button" (click)="addExperience()">
+            <mat-icon class="material-icons-filled">add </mat-icon>
+            Add New
+          </button>
+        </mat-grid-tile>
+
+
         <!-- <mat-grid-tile [colspan]="col_span">
           <mat-form-field appearance="outline">
             <mat-label>National ID</mat-label>

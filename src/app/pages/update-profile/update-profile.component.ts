@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/User';
 import { ScreenSizeService } from 'src/app/services/screen-size.service';
@@ -47,29 +53,42 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   createForm() {
-    this.userProfileForm = this.fb.group(
-      {
-        name: [this.user.name, [Validators.required]],
-        photo: [this.user.photo, [Validators.required]],
-        experience: this.fb.array(this.user.experiences),
-        educatioins: [this.user.educations],
-        languages: [this.user.languages],
-        contact: this.fb.group({
-          email: [this.user.contact.email],
-          phone: [this.user.contact.phone],
-          github: [this.user.contact.github],
-          linkedin: [this.user.contact.linkedin],
-          website: [this.user.contact.website],
-          address: [this.user.contact.address],
-        }),
-        awards: [this.user.awards],
-        publications: [this.user.publications],
-        skills: [this.user.skills],
-
-      }
-    );
+    this.userProfileForm = this.fb.group({
+      name: [this.user.name, [Validators.required]],
+      photo: [this.user.photo, [Validators.required]],
+      experiences: this.fb.array([]),
+      educatioins: [this.user.educations],
+      languages: [this.user.languages],
+      contact: this.fb.group({
+        email: [this.user.contact.email],
+        phone: [this.user.contact.phone],
+        github: [this.user.contact.github],
+        linkedin: [this.user.contact.linkedin],
+        website: [this.user.contact.website],
+        address: [this.user.contact.address],
+      }),
+      awards: [this.user.awards],
+      publications: [this.user.publications],
+      skills: [this.user.skills],
+    });
   }
 
+  addExperience() {
+    const experience = this.fb.group({
+      companyName: [''],
+      designation: [''],
+      employmentType: [''],
+      startDate: [''],
+      endDate: [''],
+      currentlyWorking: [false],
+      description: [''],
+    });
+
+    // let experienceFormArray = this.userProfileForm.get('expereinces')
+    // console.log(experienceFormArray);
+    // experienceFormArray.push(experience);
+    // this.userProfileForm.setControl('experience', experienceFormArray);
+  }
 
   adjustColumns() {
     if (this.screenSizeService.isMobileScreenSize) {
@@ -84,9 +103,12 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.userProfileForm.value)
-    if(this.userProfileForm.valid){
-      localStorage.setItem('profile', JSON.stringify(this.userProfileForm.value));
+    console.log(this.userProfileForm.value);
+    if (this.userProfileForm.valid) {
+      localStorage.setItem(
+        'profile',
+        JSON.stringify(this.userProfileForm.value)
+      );
     }
   }
 }
