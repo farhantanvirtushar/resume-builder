@@ -13,6 +13,48 @@
             <input matInput formControlName="name" type="text" required />
           </mat-form-field>
         </mat-grid-tile>
+        <mat-grid-tile [colspan]="6">
+          <div class="sub-title mat-h1">Contact</div>
+        </mat-grid-tile>
+
+        <ng-container formGroupName="contact">
+          <mat-grid-tile [colspan]="col_span">
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" type="text" />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="col_span">
+            <mat-form-field appearance="outline">
+              <mat-label>Phone</mat-label>
+              <input matInput formControlName="phone" type="text" />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="col_span">
+            <mat-form-field appearance="outline">
+              <mat-label>Github</mat-label>
+              <input matInput formControlName="github" type="text" />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="col_span">
+            <mat-form-field appearance="outline">
+              <mat-label>LinkedIn</mat-label>
+              <input matInput formControlName="linkedin" type="text" />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="col_span">
+            <mat-form-field appearance="outline">
+              <mat-label>Website</mat-label>
+              <input matInput formControlName="website" type="text" />
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="col_span">
+            <mat-form-field appearance="outline">
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="address" type="text" />
+            </mat-form-field>
+          </mat-grid-tile>
+        </ng-container>
 
         <!-- <mat-grid-tile [colspan]="col_span">
           <mat-form-field appearance="outline">

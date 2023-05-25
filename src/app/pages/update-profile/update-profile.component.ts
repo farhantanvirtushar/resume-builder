@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/User';
 import { ScreenSizeService } from 'src/app/services/screen-size.service';
@@ -51,10 +51,17 @@ export class UpdateProfileComponent implements OnInit {
       {
         name: [this.user.name, [Validators.required]],
         photo: [this.user.photo, [Validators.required]],
-        experience: [this.user.experiences],
+        experience: this.fb.array(this.user.experiences),
         educatioins: [this.user.educations],
         languages: [this.user.languages],
-        contact:[this.user.contact],
+        contact: this.fb.group({
+          email: [this.user.contact.email],
+          phone: [this.user.contact.phone],
+          github: [this.user.contact.github],
+          linkedin: [this.user.contact.linkedin],
+          website: [this.user.contact.website],
+          address: [this.user.contact.address],
+        }),
         awards: [this.user.awards],
         publications: [this.user.publications],
         skills: [this.user.skills],
@@ -77,6 +84,9 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   onSubmit() {
-
+    console.log(this.userProfileForm.value)
+    if(this.userProfileForm.valid){
+      localStorage.setItem('profile', JSON.stringify(this.userProfileForm.value));
+    }
   }
 }
