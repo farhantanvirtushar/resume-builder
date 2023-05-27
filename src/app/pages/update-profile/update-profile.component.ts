@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Experience } from 'src/app/models/Experience';
 import { User } from 'src/app/models/User';
 import { ScreenSizeService } from 'src/app/services/screen-size.service';
 
@@ -56,7 +57,19 @@ export class UpdateProfileComponent implements OnInit {
     this.userProfileForm = this.fb.group({
       name: [this.user.name, [Validators.required]],
       photo: [this.user.photo, [Validators.required]],
-      experiences: this.fb.array([]),
+      experiences: this.fb.array(
+        this.user.experiences.map((experience) => {
+          return this.fb.group({
+            companyName: experience.companyName,
+            designation: experience.designation,
+            employmentType: experience.employmentType,
+            startDate: experience.startDate,
+            endDate: experience.endDate,
+            currentlyWorking: experience.currentlyWorking,
+            description: experience.description,
+          });
+        })
+      ),
       educatioins: [this.user.educations],
       languages: [this.user.languages],
       contact: this.fb.group({
@@ -73,6 +86,10 @@ export class UpdateProfileComponent implements OnInit {
     });
   }
 
+  getFormControlExperience(): FormArray {
+    return this.userProfileForm.controls['experiences'] as FormArray;
+  }
+
   addExperience() {
     const experience = this.fb.group({
       companyName: [''],
@@ -84,10 +101,14 @@ export class UpdateProfileComponent implements OnInit {
       description: [''],
     });
 
-    // let experienceFormArray = this.userProfileForm.get('expereinces')
-    // console.log(experienceFormArray);
-    // experienceFormArray.push(experience);
-    // this.userProfileForm.setControl('experience', experienceFormArray);
+    (this.userProfileForm.controls['experiences'] as FormArray).push(
+      experience
+    );
+  }
+
+  removeExperience(index: number) {
+    console.log(index);
+    (this.userProfileForm.controls['experiences'] as FormArray).removeAt(index);
   }
 
   adjustColumns() {
@@ -104,11 +125,20 @@ export class UpdateProfileComponent implements OnInit {
 
   onSubmit() {
     console.log(this.userProfileForm.value);
-    if (this.userProfileForm.valid) {
-      localStorage.setItem(
-        'profile',
-        JSON.stringify(this.userProfileForm.value)
-      );
-    }
+    this.updateUserProfile();
+  }
+
+  updateUserProfile() {
+    this.user.name = this.userProfileForm.value.name;
+    this.user.photo = this.userProfileForm.value.photo;
+    this.user.contact = this.userProfileForm.value.contact;
+    this.user.experiences = this.userProfileForm.value.experiences;
+    this.user.educations = this.userProfileForm.value.educations;
+    this.user.languages = this.userProfileForm.value.languages;
+    this.user.awards = this.userProfileForm.value.awards;
+    this.user.publications = this.userProfileForm.value.publications;
+    this.user.skills = this.userProfileForm.value.skills;
+
+    localStorage.setItem('profile', JSON.stringify(this.user));
   }
 }

@@ -1,6 +1,7 @@
 .container {
   margin-top: 30px;
   padding: 10px;
+
 }
 
 .title {
@@ -13,6 +14,28 @@
   text-align: left;
 }
 
+.form-row{
+  width: 100%;
+}
+
+mat-form-field{
+  box-sizing: border-box;
+}
+.checkbox-container {
+  position: absolute;
+  left: 5px;
+}
+
+.form-group-menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+.form-group-margin-top {
+  margin-top: 10px;
+}
 app-spinner {
   margin-top: 150px;
 }
