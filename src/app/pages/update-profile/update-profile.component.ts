@@ -70,7 +70,18 @@ export class UpdateProfileComponent implements OnInit {
           });
         })
       ),
-      educatioins: [this.user.educations],
+      educations: this.fb.array(
+        this.user.educations.map((educatioin) => {
+          return this.fb.group({
+            school: educatioin.school,
+            degree: educatioin.degree,
+            major: educatioin.major,
+            startDate: educatioin.startDate,
+            endDate: educatioin.endDate,
+            grade: educatioin.grade,
+          });
+        })
+      ),
       languages: [this.user.languages],
       contact: this.fb.group({
         email: [this.user.contact.email],
@@ -88,6 +99,10 @@ export class UpdateProfileComponent implements OnInit {
 
   getFormControlExperience(): FormArray {
     return this.userProfileForm.controls['experiences'] as FormArray;
+  }
+
+  getFormControlEducation(): FormArray {
+    return this.userProfileForm.controls['educations'] as FormArray;
   }
 
   addExperience() {
@@ -109,6 +124,24 @@ export class UpdateProfileComponent implements OnInit {
   removeExperience(index: number) {
     console.log(index);
     (this.userProfileForm.controls['experiences'] as FormArray).removeAt(index);
+  }
+
+  addEducation() {
+    const education = this.fb.group({
+      school: [''],
+      degree: [''],
+      major: [''],
+      startDate: [''],
+      endDate: [''],
+      grade: [],
+    });
+
+    (this.userProfileForm.controls['educations'] as FormArray).push(education);
+  }
+
+  removeEducation(index: number) {
+    console.log(index);
+    (this.userProfileForm.controls['educations'] as FormArray).removeAt(index);
   }
 
   adjustColumns() {

@@ -171,6 +171,119 @@
         </div>
       </ng-container>
 
+      <div class="sub-title mat-h1">Education</div>
+
+      <ng-container formArrayName="educations">
+        <ng-container
+          class="education"
+          *ngFor="
+            let education of this.getFormControlEducation().controls;
+            let i = index
+          "
+        >
+          <ng-container formGroupName="{{ i }}">
+            <div class="form-group-menu form-group-margin-top">
+              <button
+                mat-icon-button
+                type="button"
+                color="warn"
+                (click)="removeEducation(i)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+            <mat-grid-list
+              cols="6"
+              rowHeight="77px"
+              (window:resize)="onResize($event)"
+            >
+              <mat-grid-tile [colspan]="col_span">
+                <mat-form-field appearance="outline">
+                  <mat-label>School</mat-label>
+                  <input matInput formControlName="school" type="text" />
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="col_span">
+                <mat-form-field appearance="outline">
+                  <mat-label>Degree</mat-label>
+                  <input
+                    matInput
+                    formControlName="degree"
+                    type="text"
+                    placeholder="Bachelor Of Science"
+                  />
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="col_span">
+                <mat-form-field appearance="outline">
+                  <mat-label>major</mat-label>
+                  <input
+                    matInput
+                    formControlName="major"
+                    type="text"
+                    placeholder="Computer Science"
+                  />
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="col_span">
+                <mat-form-field appearance="outline">
+                  <mat-label>Grade</mat-label>
+                  <input matInput formControlName="grade" type="number" />
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="col_span">
+                <mat-form-field appearance="outline">
+                  <mat-label>Start Date</mat-label>
+                  <input
+                    matInput
+                    [matDatepicker]="startDatePicker"
+                    formControlName="startDate"
+                  />
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="startDatePicker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #startDatePicker></mat-datepicker>
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="col_span">
+                <mat-form-field appearance="outline">
+                  <mat-label>End Date</mat-label>
+                  <input
+                    matInput
+                    [matDatepicker]="endDatePicker"
+                    formControlName="endDate"
+                  />
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="endDatePicker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #endDatePicker></mat-datepicker>
+                </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </ng-container>
+        </ng-container>
+        <div class="form-group-menu">
+          <button
+            type="button"
+            mat-raised-button
+            color="primary"
+            (click)="addEducation()"
+          >
+            <mat-icon class="material-icons-filled">add </mat-icon>
+            Add New
+          </button>
+        </div>
+      </ng-container>
+
       <button mat-raised-button color="primary" type="submit">
         <mat-icon class="material-icons-filled">save </mat-icon>
         Save
