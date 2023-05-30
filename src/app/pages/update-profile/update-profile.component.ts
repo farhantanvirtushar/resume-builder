@@ -82,7 +82,14 @@ export class UpdateProfileComponent implements OnInit {
           });
         })
       ),
-      languages: [this.user.languages],
+      languages: this.fb.array(
+        this.user.languages.map((language) => {
+          return this.fb.group({
+            name: language.name,
+            proficiency: language.proficiency,
+          });
+        })
+      ),
       contact: this.fb.group({
         email: [this.user.contact.email],
         phone: [this.user.contact.phone],
@@ -114,6 +121,9 @@ export class UpdateProfileComponent implements OnInit {
 
   getFormControlSkills(): FormArray {
     return this.userProfileForm.controls['skills'] as FormArray;
+  }
+  getFormControlLanguages(): FormArray {
+    return this.userProfileForm.controls['languages'] as FormArray;
   }
   addExperience() {
     const experience = this.fb.group({
@@ -167,6 +177,20 @@ export class UpdateProfileComponent implements OnInit {
 
   removeSkill(index: number) {
     (this.userProfileForm.controls['skills'] as FormArray).removeAt(index);
+  }
+
+  addLanguage() {
+    const language = this.fb.group({
+      name: [''],
+      proficiency: [50.0],
+    });
+
+    (this.userProfileForm.controls['languages'] as FormArray).push(language);
+
+  }
+
+  removeLanguage(index: number) {
+    (this.userProfileForm.controls['languages'] as FormArray).removeAt(index);
   }
 
   formatLabel(value: number): string {
