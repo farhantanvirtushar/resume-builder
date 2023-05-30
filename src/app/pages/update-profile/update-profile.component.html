@@ -284,6 +284,69 @@
         </div>
       </ng-container>
 
+      <div class="sub-title mat-h1">Skills</div>
+
+      <ng-container formArrayName="skills">
+        <ng-container
+          class="skill"
+          *ngFor="
+            let skill of this.getFormControlSkills().controls;
+            let i = index
+          "
+        >
+          <ng-container formGroupName="{{ i }}">
+            <div class="form-group-menu form-group-margin-top">
+              <button
+                mat-icon-button
+                type="button"
+                color="warn"
+                (click)="removeSkill(i)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+            <mat-grid-list
+              cols="6"
+              rowHeight="77px"
+              (window:resize)="onResize($event)"
+            >
+              <mat-grid-tile [colspan]="col_span">
+                <mat-form-field appearance="outline">
+                  <mat-label>Name</mat-label>
+                  <input matInput formControlName="name" type="text" />
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="col_span">
+                <div class="slider-container">
+                  <mat-label>Proficiency</mat-label>
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    formControlName="proficiency"
+                    [matTooltip]="getToolTipText(skill.get('proficiency')?.value)"
+                    class="slider"
+                    id="myRange"
+                  >
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </ng-container>
+        </ng-container>
+        <div class="form-group-menu">
+          <button
+            type="button"
+            mat-raised-button
+            color="primary"
+            (click)="addSkill()"
+          >
+            <mat-icon class="material-icons-filled">add </mat-icon>
+            Add New
+          </button>
+        </div>
+      </ng-container>
+
       <button mat-raised-button color="primary" type="submit">
         <mat-icon class="material-icons-filled">save </mat-icon>
         Save

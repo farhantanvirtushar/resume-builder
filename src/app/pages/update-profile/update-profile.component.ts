@@ -93,7 +93,14 @@ export class UpdateProfileComponent implements OnInit {
       }),
       awards: [this.user.awards],
       publications: [this.user.publications],
-      skills: [this.user.skills],
+      skills: this.fb.array(
+        this.user.skills.map((skill) => {
+          return this.fb.group({
+            name: skill.name,
+            proficiency: skill.proficiency,
+          });
+        })
+      ),
     });
   }
 
@@ -105,6 +112,9 @@ export class UpdateProfileComponent implements OnInit {
     return this.userProfileForm.controls['educations'] as FormArray;
   }
 
+  getFormControlSkills(): FormArray {
+    return this.userProfileForm.controls['skills'] as FormArray;
+  }
   addExperience() {
     const experience = this.fb.group({
       companyName: [''],
@@ -122,7 +132,6 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   removeExperience(index: number) {
-    console.log(index);
     (this.userProfileForm.controls['experiences'] as FormArray).removeAt(index);
   }
 
@@ -140,10 +149,37 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   removeEducation(index: number) {
-    console.log(index);
     (this.userProfileForm.controls['educations'] as FormArray).removeAt(index);
   }
 
+  addSkill() {
+    const education = this.fb.group({
+      name: [''],
+      proficiency: [50.0],
+    });
+
+    (this.userProfileForm.controls['skills'] as FormArray).push(education);
+    let temp = (
+      (this.userProfileForm.controls['skills'] as FormArray).at(0) as FormGroup
+    ).controls['proficiency'].value;
+    console.log(temp);
+  }
+
+  removeSkill(index: number) {
+    (this.userProfileForm.controls['skills'] as FormArray).removeAt(index);
+  }
+
+  formatLabel(value: number): string {
+    if (value >= 1) {
+      return Math.round(value) + '%';
+    }
+
+    return `${value}`;
+  }
+
+  getToolTipText(value: number) {
+    return `${value}%`;
+  }
   adjustColumns() {
     if (this.screenSizeService.isMobileScreenSize) {
       this.col_span = 6;

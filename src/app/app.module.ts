@@ -12,10 +12,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, UpdateProfileComponent],
@@ -33,6 +34,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    FormsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],
