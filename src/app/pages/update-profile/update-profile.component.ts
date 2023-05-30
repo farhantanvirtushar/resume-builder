@@ -35,6 +35,7 @@ export class UpdateProfileComponent implements OnInit {
       this.user = {
         name: 'Lorem Ipsum',
         photo: '',
+        summary:'',
         experiences: [],
         educations: [],
         languages: [],

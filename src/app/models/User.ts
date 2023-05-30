@@ -6,6 +6,7 @@ import { Skill } from "./Skill";
 export interface User {
   name: string;
   photo: string;
+  summary: string;
   experiences: Experience[];
   educations: Education[];
   languages: Skill[];

@@ -17,9 +17,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { Template1Component } from './templates/template1/template1.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, UpdateProfileComponent],
+  declarations: [AppComponent, HomeComponent, UpdateProfileComponent, Template1Component],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,7 +37,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],
