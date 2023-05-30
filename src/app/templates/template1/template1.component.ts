@@ -47,4 +47,8 @@ export class Template1Component implements OnInit {
     return `${date.getDate()} ${this.months[date.getMonth()]} ${date.getFullYear()}`;
   }
 
+  save(){
+    window.print()
+  }
+
 }

@@ -105,9 +105,40 @@
 
 .description {
   margin-top: 10px;
+  white-space: pre-line
 }
 
-// .page-break {
-//   height: 100vh;
-//   max-height: 1000px;
-// }
+.page-break {
+  break-before: always;
+  height: 0;
+
+}
+
+.fab {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+}
+
+@page {
+  margin: 0;
+}
+
+@page :blank {
+  @top-center { content: "This page is intentionally left blank" }
+}
+
+@media print
+{
+    .fab
+    {
+        display: none !important;
+    }
+
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+
+}
