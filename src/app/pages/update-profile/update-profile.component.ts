@@ -57,7 +57,8 @@ export class UpdateProfileComponent implements OnInit {
   createForm() {
     this.userProfileForm = this.fb.group({
       name: [this.user.name, [Validators.required]],
-      photo: [this.user.photo, [Validators.required]],
+      photo: [this.user.photo],
+      summary: [this.user.summary],
       experiences: this.fb.array(
         this.user.experiences.map((experience) => {
           return this.fb.group({
@@ -225,6 +226,7 @@ export class UpdateProfileComponent implements OnInit {
   updateUserProfile() {
     this.user.name = this.userProfileForm.value.name;
     this.user.photo = this.userProfileForm.value.photo;
+    this.user.summary = this.userProfileForm.value.summary;
     this.user.contact = this.userProfileForm.value.contact;
     this.user.experiences = this.userProfileForm.value.experiences;
     this.user.educations = this.userProfileForm.value.educations;

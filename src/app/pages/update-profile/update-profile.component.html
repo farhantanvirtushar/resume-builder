@@ -8,6 +8,12 @@
           <input matInput formControlName="name" type="text" required />
         </mat-form-field>
       </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Summary</mat-label>
+          <textarea matInput formControlName="summary" type="text" required ></textarea>
+        </mat-form-field>
+      </div>
 
       <div class="sub-title mat-h1">Contact</div>
 
@@ -149,13 +155,13 @@
                 </mat-form-field>
               </mat-grid-tile>
 
-              <mat-grid-tile [colspan]="6">
-                <mat-form-field appearance="outline">
-                  <mat-label>Descsription</mat-label>
-                  <input matInput formControlName="description" type="text" />
-                </mat-form-field>
-              </mat-grid-tile>
             </mat-grid-list>
+            <div class="form-row">
+              <mat-form-field appearance="outline">
+                <mat-label>Descsription</mat-label>
+                <textarea matInput formControlName="description" type="text" ></textarea>
+              </mat-form-field>
+            </div>
           </ng-container>
         </ng-container>
         <div class="form-group-menu">
