@@ -12,6 +12,8 @@ export class Template1Component implements OnInit {
 
   user!: User;
   constructor(private readonly meta: Meta, private router: Router) {
+    this.meta.removeTag('name="viewport"');
+    this.meta.addTag({ name: 'viewport', content: 'width=1024' })
 
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Template } from 'src/app/models/Template';
 import { ScreenSizeService } from 'src/app/services/screen-size.service';
@@ -35,7 +36,9 @@ export class HomeComponent implements OnInit {
   ];
 
   col_span: number = 2;
-  constructor(public screenSizeService: ScreenSizeService, private router: Router) {
+  constructor(private readonly meta: Meta, public screenSizeService: ScreenSizeService, private router: Router) {
+    this.meta.removeTag('name="viewport"');
+    this.meta.addTag({ name: 'viewport', content: 'width=device-width, initial-scale=1.0' })
     this.adjustColumns();
   }
 
