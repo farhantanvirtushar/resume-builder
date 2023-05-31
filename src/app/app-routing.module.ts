@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { Template1Component } from './templates/template1/template1.component';
+import { Template2Component } from './templates/template2/template2.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'template_1',
     component: Template1Component
+  },
+  {
+    path: 'template_2',
+    component: Template2Component
   },
   {
     path: '',

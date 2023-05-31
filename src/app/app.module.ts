@@ -19,9 +19,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { Template1Component } from './templates/template1/template1.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { Template2Component } from './templates/template2/template2.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, UpdateProfileComponent, Template1Component],
+  declarations: [AppComponent, HomeComponent, UpdateProfileComponent, Template1Component, Template2Component],
   imports: [
     BrowserModule,
     AppRoutingModule,
