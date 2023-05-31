@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     {
       url:'template_2',
       isPro: false,
-      image:'template_1.png'
+      image:'template_2.png'
     },
     {
       url:'template_1',
