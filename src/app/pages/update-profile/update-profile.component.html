@@ -11,7 +11,12 @@
       <div class="form-row">
         <mat-form-field appearance="outline">
           <mat-label>Summary</mat-label>
-          <textarea matInput formControlName="summary" type="text" required ></textarea>
+          <textarea
+            matInput
+            formControlName="summary"
+            type="text"
+            required
+          ></textarea>
         </mat-form-field>
       </div>
 
@@ -154,12 +159,15 @@
                   </mat-select>
                 </mat-form-field>
               </mat-grid-tile>
-
             </mat-grid-list>
             <div class="form-row">
               <mat-form-field appearance="outline">
                 <mat-label>Descsription</mat-label>
-                <textarea matInput formControlName="description" type="text" ></textarea>
+                <textarea
+                  matInput
+                  formControlName="description"
+                  type="text"
+                ></textarea>
               </mat-form-field>
             </div>
           </ng-container>
@@ -331,10 +339,12 @@
                     min="1"
                     max="100"
                     formControlName="proficiency"
-                    [matTooltip]="getToolTipText(skill.get('proficiency')?.value)"
+                    [matTooltip]="
+                      getToolTipText(skill.get('proficiency')?.value)
+                    "
                     class="slider"
                     id="myRange"
-                  >
+                  />
                 </div>
               </mat-grid-tile>
             </mat-grid-list>
@@ -394,10 +404,12 @@
                     min="1"
                     max="100"
                     formControlName="proficiency"
-                    [matTooltip]="getToolTipText(language.get('proficiency')?.value)"
+                    [matTooltip]="
+                      getToolTipText(language.get('proficiency')?.value)
+                    "
                     class="slider"
                     id="myRange"
-                  >
+                  />
                 </div>
               </mat-grid-tile>
             </mat-grid-list>
@@ -415,10 +427,16 @@
           </button>
         </div>
       </ng-container>
-      <button mat-raised-button color="primary" type="submit">
-        <mat-icon class="material-icons-filled">save </mat-icon>
-        Save
-      </button>
+      <div class="form-submit">
+        <button mat-raised-button color="warn" type="button" (click)="cancel()">
+          <mat-icon class="material-icons-filled">cancel </mat-icon>
+          Cancel
+        </button>
+        <button mat-raised-button color="primary" type="submit">
+          <mat-icon class="material-icons-filled">save </mat-icon>
+          Save
+        </button>
+      </div>
     </form>
   </div>
 </div>

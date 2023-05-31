@@ -1,1 +1,23 @@
-<p>home works!</p>
+<div class="container">
+  <div class="title">Resume Builder</div>
+  <mat-grid-list cols="6" rowHeight="300px" (window:resize)="onResize($event)">
+    <ng-container *ngFor="let template of templateList">
+      <mat-grid-tile [colspan]="col_span">
+        <div class="template-card">
+          <img class="template-image" [src]="'assets/images/' + template.image">
+          <button mat-raised-button color="primary" type="button" class="styled-button" (click)="preview(template.url)">
+            <mat-icon class="material-icons-filled">visibility </mat-icon>
+            preview
+          </button>
+
+        </div>
+      </mat-grid-tile>
+    </ng-container>
+
+
+  </mat-grid-list>
+  <button mat-raised-button color="warn" type="button" class="fab" (click)="goToUpdatePage()">
+    <mat-icon class="material-icons-filled">edit </mat-icon>
+    Update Profile
+  </button>
+</div>

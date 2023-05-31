@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
+import { Meta } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-template1',
@@ -9,7 +11,9 @@ import { User } from 'src/app/models/User';
 export class Template1Component implements OnInit {
 
   user!: User;
-  constructor() { }
+  constructor(private readonly meta: Meta, private router: Router) {
+
+  }
 
   months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November','December'];
 
@@ -45,6 +49,10 @@ export class Template1Component implements OnInit {
     let date = new Date(dateStr);
 
     return `${date.getDate()} ${this.months[date.getMonth()]} ${date.getFullYear()}`;
+  }
+
+  goHome() {
+    this.router.navigate(['/home']);
   }
 
   save(){

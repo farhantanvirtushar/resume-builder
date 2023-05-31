@@ -119,6 +119,11 @@
   bottom: 10px;
   right: 20px;
 }
+.fab-left {
+  position: fixed;
+  bottom: 10px;
+  left: 20px;
+}
 
 @page {
   margin: 0;
@@ -130,7 +135,7 @@
 
 @media print
 {
-    .fab
+    .fab , .fab-left
     {
         display: none !important;
     }

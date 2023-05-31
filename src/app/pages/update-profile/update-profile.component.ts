@@ -223,6 +223,10 @@ export class UpdateProfileComponent implements OnInit {
     this.updateUserProfile();
   }
 
+  cancel() {
+    this.router.navigate(['/home']);
+  }
+
   updateUserProfile() {
     this.user.name = this.userProfileForm.value.name;
     this.user.photo = this.userProfileForm.value.photo;
@@ -236,5 +240,6 @@ export class UpdateProfileComponent implements OnInit {
     this.user.skills = this.userProfileForm.value.skills;
 
     localStorage.setItem('profile', JSON.stringify(this.user));
+    this.router.navigate(['/home']);
   }
 }

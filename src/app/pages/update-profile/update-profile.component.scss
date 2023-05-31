@@ -51,18 +51,7 @@ mat-form-field{
 .form-group-margin-top {
   margin-top: 10px;
 }
-app-spinner {
-  margin-top: 150px;
-}
 
-.agency-info {
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border-bottom: 1px solid var(--primary-color);
-}
 
 .row {
   padding-top: 5px;
@@ -95,4 +84,11 @@ mat-form-field {
 .styled-button {
   background-color: var(--primary-color);
   color: var(--secondary-text-color);
+}
+
+.form-submit {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
