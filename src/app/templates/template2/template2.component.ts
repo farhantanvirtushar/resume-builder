@@ -27,6 +27,7 @@ export class Template2Component implements OnInit {
     } else {
       this.user = {
         name: 'Lorem Ipsum',
+        profession: '',
         photo: '',
         summary: '',
         experiences: [],

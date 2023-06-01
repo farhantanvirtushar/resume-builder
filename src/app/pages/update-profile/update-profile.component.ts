@@ -34,6 +34,7 @@ export class UpdateProfileComponent implements OnInit {
     } else {
       this.user = {
         name: 'Lorem Ipsum',
+        profession:'',
         photo: '',
         summary:'',
         experiences: [],
@@ -57,6 +58,7 @@ export class UpdateProfileComponent implements OnInit {
   createForm() {
     this.userProfileForm = this.fb.group({
       name: [this.user.name, [Validators.required]],
+      profession: [this.user.profession],
       photo: [this.user.photo],
       summary: [this.user.summary],
       experiences: this.fb.array(
@@ -229,6 +231,7 @@ export class UpdateProfileComponent implements OnInit {
 
   updateUserProfile() {
     this.user.name = this.userProfileForm.value.name;
+    this.user.profession = this.userProfileForm.value.profession;
     this.user.photo = this.userProfileForm.value.photo;
     this.user.summary = this.userProfileForm.value.summary;
     this.user.contact = this.userProfileForm.value.contact;

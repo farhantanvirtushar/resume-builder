@@ -52,6 +52,7 @@
   <div class="main-section">
     <div class="personal-info">
       <div class="name">{{ user.name }}</div>
+      <div *ngIf="user.profession" class="profession">{{ user.profession }}</div>
     </div>
 
     <div class="resume-section">
