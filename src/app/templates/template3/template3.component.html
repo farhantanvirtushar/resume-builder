@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="top-section">
+    <div class="personal-info">
+      <div class="name">{{ user.name }}</div>
+      <div *ngIf="user.profession" class="profession">
+        {{ user.profession }}
+      </div>
+    </div>
+    <div class="resume-section">
+      <div class="contact-info">
+        {{ user.contact.email }} <mat-icon>mail_outline</mat-icon>
+      </div>
+      <div class="contact-info">
+        {{ user.contact.phone }} <mat-icon>phone_android_outline</mat-icon>
+      </div>
+      <div *ngIf="user.contact.address" class="contact-info">
+        {{ user.contact.address }}
+        <mat-icon>location_on_outline</mat-icon>
+      </div>
+      <div *ngIf="user.contact.github" class="contact-info">
+        {{ user.contact.linkedin }}
+        <!-- <ng-icon name="bootstrapGithub"></ng-icon> -->
+      </div>
+      <div *ngIf="user.contact.website" class="contact-info">
+        <mat-icon>language</mat-icon>
+        {{ user.contact.website }}
+      </div>
+    </div>
+  </div>
+  <div class="left-section">
+    <div class="resume-section">
+      <div class="title">Education</div>
+      <ng-container *ngFor="let education of user.educations">
+        <div class="section-item">
+          <div class="subtitle">{{ education.school }}</div>
+          <div class="subtitle-2">
+            {{ education.degree }} - {{ education.major }}
+          </div>
+          <div class="date-range">
+            {{ getDateString(education.startDate) }} -
+            {{ getDateString(education.endDate) }}
+          </div>
+          <div>Grade : {{ education.grade }}</div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="resume-section">
+      <div class="title">Skills</div>
+      <ng-container *ngFor="let skill of user.skills">
+        <div class="row">
+          <div class="skill-name">{{ skill.name }}</div>
+          <div class="progress-bar">
+            <mat-progress-bar
+              color="warn"
+              mode="determinate"
+              [value]="skill.proficiency"
+            >
+            </mat-progress-bar>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="resume-section">
+      <div class="title">Languages</div>
+      <ng-container *ngFor="let language of user.languages">
+        <div class="row">
+          <div class="skill-name">{{ language.name }}</div>
+          <div class="progress-bar">
+            <mat-progress-bar
+              color="warn"
+              mode="determinate"
+              [value]="language.proficiency"
+            >
+            </mat-progress-bar>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="main-section">
+    <div class="resume-section">
+      <div class="title">Summary</div>
+      <div class="description">{{ user.summary }}</div>
+    </div>
+
+    <div class="resume-section">
+      <div class="title">Experience</div>
+      <ng-container *ngFor="let experience of user.experiences">
+        <div class="section-item">
+          <div class="subtitle">{{ experience.companyName }}</div>
+          <div class="subtitle-2">
+            {{ experience.designation }} - {{ experience.employmentType }}
+          </div>
+          <div class="date-range">
+            {{ getDateString(experience.startDate) }} -
+            {{
+              experience.currentlyWorking
+                ? "Present"
+                : getDateString(experience.endDate)
+            }}
+          </div>
+          <div class="description">{{ experience.description }}</div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="page-break"></div>
+  </div>
+  <button class="fab-left" mat-fab color="warn" (click)="goHome()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <button class="fab" mat-fab color="primary" (click)="save()">
+    <mat-icon>save</mat-icon>
+  </button>
+</div>

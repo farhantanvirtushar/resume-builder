@@ -20,9 +20,12 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { Template1Component } from './templates/template1/template1.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { Template2Component } from './templates/template2/template2.component';
+import { Template3Component } from './templates/template3/template3.component';
+// import { NgIconsModule } from '@ng-icons/core';
+// import  {bootstrapGithub, bootstrapLinkedin} from '@ng-icons/bootstrap-icons'
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, UpdateProfileComponent, Template1Component, Template2Component],
+  declarations: [AppComponent, HomeComponent, UpdateProfileComponent, Template1Component, Template2Component, Template3Component],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,7 +42,8 @@ import { Template2Component } from './templates/template2/template2.component';
     MatButtonModule,
     FormsModule,
     MatTooltipModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    // NgIconsModule.withIcons({bootstrapGithub,bootstrapLinkedin})
   ],
   providers: [],
   bootstrap: [AppComponent],

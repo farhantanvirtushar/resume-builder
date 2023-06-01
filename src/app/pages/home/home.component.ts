@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       image:'template_2.png'
     },
     {
-      url:'template_1',
+      url:'template_3',
       isPro: false,
       image:'template_1.png'
     },

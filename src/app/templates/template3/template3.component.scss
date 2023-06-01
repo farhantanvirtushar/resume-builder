@@ -1,0 +1,179 @@
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: max-content;
+
+}
+
+.top-section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.left-section {
+  padding-top: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 30%;
+
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 70%;
+  background-color: #ffffff;
+}
+
+.row {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill-name {
+  width: 30%;
+}
+
+.progress-bar {
+  padding-left: 5px;
+  width: 70%;
+  box-sizing: border-box;
+}
+
+.name {
+  margin-top: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.profession {
+
+  padding: 0 10px 0;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #474747;
+}
+
+.resume-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  max-width: 400px;
+}
+
+.word-break {
+  word-break: break-all;
+}
+
+.section-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 0 10px;
+  break-inside: avoid;
+}
+
+.title{
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-bottom: 10px;
+
+}
+
+.subtitle-2 {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+
+
+}
+.date-range {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #474747;
+}
+
+.description {
+  margin-top: 10px;
+  white-space: pre-line
+}
+
+.page-break {
+  break-before: always;
+  height: 0;
+
+}
+
+.fab {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+}
+.fab-left {
+  position: fixed;
+  bottom: 10px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+mat-icon {
+  font-size: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+@page {
+  margin: 0;
+}
+
+@page :blank {
+  @top-center { content: "This page is intentionally left blank" }
+}
+
+@media print
+{
+    .fab , .fab-left
+    {
+        display: none !important;
+    }
+
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+
+}
