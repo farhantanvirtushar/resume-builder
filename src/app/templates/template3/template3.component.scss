@@ -1,10 +1,10 @@
-
 .container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   height: max-content;
-
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .top-section {
@@ -13,6 +13,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 3px solid #a1a1a1;
+  padding-bottom: 20px;
 }
 .left-section {
   padding-top: 40px;
@@ -21,10 +23,10 @@
   flex-direction: column;
   height: 100%;
   width: 30%;
-
 }
 
 .main-section {
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -53,6 +55,7 @@
 }
 
 .name {
+  font-family:'Courier New', Courier, monospace;
   margin-top: 30px;
   padding: 10px;
   box-sizing: border-box;
@@ -62,7 +65,6 @@
 }
 
 .profession {
-
   padding: 0 10px 0;
   margin-bottom: 10px;
   box-sizing: border-box;
@@ -83,6 +85,18 @@
   flex-direction: row;
   justify-content: flex-end;
   max-width: 400px;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.contact-icon {
+  margin-left: 10px;
+  box-sizing: border-box;
+}
+
+ng-icon {
+  font-size: 20px;
 }
 
 .word-break {
@@ -97,7 +111,7 @@
   break-inside: avoid;
 }
 
-.title{
+.title {
   font-size: 2rem;
   line-height: 1;
   font-weight: 400;
@@ -108,14 +122,11 @@
   font-size: 1.4rem;
   line-height: 1;
   margin-bottom: 10px;
-
 }
 
 .subtitle-2 {
   font-size: 0.9rem;
   margin-bottom: 5px;
-
-
 }
 .date-range {
   font-size: 0.9rem;
@@ -125,13 +136,12 @@
 
 .description {
   margin-top: 10px;
-  white-space: pre-line
+  white-space: pre-line;
 }
 
 .page-break {
   break-before: always;
   height: 0;
-
 }
 
 .fab {
@@ -149,7 +159,7 @@
   height: 100px;
 }
 
-mat-icon {
+.fab-icon {
   font-size: 50px;
   width: 50px;
   height: 50px;
@@ -160,20 +170,19 @@ mat-icon {
 }
 
 @page :blank {
-  @top-center { content: "This page is intentionally left blank" }
+  @top-center {
+    content: "This page is intentionally left blank";
+  }
 }
 
-@media print
-{
-    .fab , .fab-left
-    {
-        display: none !important;
-    }
+@media print {
+  .fab,
+  .fab-left {
+    display: none !important;
+  }
 
-    * {
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-    }
-
-
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }

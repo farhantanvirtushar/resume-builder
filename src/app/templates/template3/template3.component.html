@@ -8,21 +8,25 @@
     </div>
     <div class="resume-section">
       <div class="contact-info">
-        {{ user.contact.email }} <mat-icon>mail_outline</mat-icon>
+        {{ user.contact.email }} <mat-icon class="contact-icon">mail_outline</mat-icon>
       </div>
       <div class="contact-info">
-        {{ user.contact.phone }} <mat-icon>phone_android_outline</mat-icon>
+        {{ user.contact.phone }} <mat-icon class="contact-icon">phone_android_outline</mat-icon>
       </div>
       <div *ngIf="user.contact.address" class="contact-info">
         {{ user.contact.address }}
-        <mat-icon>location_on_outline</mat-icon>
+        <mat-icon class="contact-icon">location_on_outline</mat-icon>
       </div>
       <div *ngIf="user.contact.github" class="contact-info">
+        {{ user.contact.github }}
+        <ng-icon name="bootstrapGithub" class="contact-icon"></ng-icon>
+      </div>
+      <div *ngIf="user.contact.linkedin" class="contact-info">
         {{ user.contact.linkedin }}
-        <!-- <ng-icon name="bootstrapGithub"></ng-icon> -->
+        <ng-icon name="bootstrapLinkedin" class="contact-icon"></ng-icon>
       </div>
       <div *ngIf="user.contact.website" class="contact-info">
-        <mat-icon>language</mat-icon>
+        <mat-icon class="contact-icon">language</mat-icon>
         {{ user.contact.website }}
       </div>
     </div>
@@ -109,9 +113,9 @@
     <div class="page-break"></div>
   </div>
   <button class="fab-left" mat-fab color="warn" (click)="goHome()">
-    <mat-icon>arrow_back</mat-icon>
+    <mat-icon class="fab-icon">arrow_back</mat-icon>
   </button>
   <button class="fab" mat-fab color="primary" (click)="save()">
-    <mat-icon>save</mat-icon>
+    <mat-icon class="fab-icon">save</mat-icon>
   </button>
 </div>

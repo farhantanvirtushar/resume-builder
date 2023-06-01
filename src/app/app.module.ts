@@ -21,6 +21,8 @@ import { Template1Component } from './templates/template1/template1.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { Template2Component } from './templates/template2/template2.component';
 import { Template3Component } from './templates/template3/template3.component';
+import { NgIconsModule } from '@ng-icons/core';
+import  * as bootstrapIcons  from '@ng-icons/bootstrap-icons';
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import { Template3Component } from './templates/template3/template3.component';
     FormsModule,
     MatTooltipModule,
     MatProgressBarModule,
+    NgIconsModule.withIcons(bootstrapIcons)
   ],
   providers: [],
   bootstrap: [AppComponent],

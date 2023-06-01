@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     {
       url:'template_3',
       isPro: false,
-      image:'template_1.png'
+      image:'template_3.png'
     },
     {
       url:'template_1',
