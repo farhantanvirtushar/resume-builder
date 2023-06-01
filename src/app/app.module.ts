@@ -7,22 +7,21 @@ import { HomeComponent } from './pages/home/home.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
-import { MatLegacyCheckboxModule as MatCheckboxModule } from '@angular/material/legacy-checkbox';
-import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatLegacyTooltipModule as MatTooltipModule} from '@angular/material/legacy-tooltip';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { Template1Component } from './templates/template1/template1.component';
-import {MatLegacyProgressBarModule as MatProgressBarModule} from '@angular/material/legacy-progress-bar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { Template2Component } from './templates/template2/template2.component';
 import { Template3Component } from './templates/template3/template3.component';
-// import { NgIconsModule } from '@ng-icons/core';
-// import  {bootstrapGithub, bootstrapLinkedin} from '@ng-icons/bootstrap-icons'
+
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, UpdateProfileComponent, Template1Component, Template2Component, Template3Component],
@@ -43,7 +42,6 @@ import { Template3Component } from './templates/template3/template3.component';
     FormsModule,
     MatTooltipModule,
     MatProgressBarModule,
-    // NgIconsModule.withIcons({bootstrapGithub,bootstrapLinkedin})
   ],
   providers: [],
   bootstrap: [AppComponent],
