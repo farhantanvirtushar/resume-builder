@@ -5,6 +5,7 @@ import { UpdateProfileComponent } from './pages/update-profile/update-profile.co
 import { Template1Component } from './templates/template1/template1.component';
 import { Template2Component } from './templates/template2/template2.component';
 import { Template3Component } from './templates/template3/template3.component';
+import { Template4Component } from './templates/template4/template4.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'template_3',
     component: Template3Component
+  },
+  {
+    path: 'template_4',
+    component: Template4Component
   },
   {
     path: '',

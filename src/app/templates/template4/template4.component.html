@@ -1,22 +1,56 @@
 <div class="container">
-  <div class="left-section">
+  <div class="top-section">
+    <div class="personal-info">
+      <div class="name">{{ user.name }}</div>
+      <div *ngIf="user.profession" class="profession">
+        {{ user.profession }}
+      </div>
+    </div>
     <div class="resume-section">
-      <div class="title">Contact</div>
-      <div class="contact-info word-break">{{ user.contact.email }}</div>
-      <div class="contact-info">{{ user.contact.phone }}</div>
+      <div class="contact-info">
+        {{ user.contact.email }} <mat-icon class="contact-icon">mail_outline</mat-icon>
+      </div>
+      <div class="contact-info">
+        {{ user.contact.phone }} <mat-icon class="contact-icon">phone_android_outline</mat-icon>
+      </div>
       <div *ngIf="user.contact.address" class="contact-info">
         {{ user.contact.address }}
+        <mat-icon class="contact-icon">location_on_outline</mat-icon>
       </div>
       <div *ngIf="user.contact.github" class="contact-info">
+        {{ user.contact.github }}
+        <ng-icon name="bootstrapGithub" class="contact-icon"></ng-icon>
+      </div>
+      <div *ngIf="user.contact.linkedin" class="contact-info">
         {{ user.contact.linkedin }}
+        <ng-icon name="bootstrapLinkedin" class="contact-icon"></ng-icon>
       </div>
       <div *ngIf="user.contact.website" class="contact-info">
+        <mat-icon class="contact-icon">language</mat-icon>
         {{ user.contact.website }}
       </div>
     </div>
+  </div>
+  <div class="left-section">
+    <div class="resume-section">
+      <div class="title title-left-section">Education</div>
+      <ng-container *ngFor="let education of user.educations">
+        <div class="section-item">
+          <div class="subtitle">{{ education.school }}</div>
+          <div class="subtitle-2">
+            {{ education.degree }} - {{ education.major }}
+          </div>
+          <div >
+            {{ getDateString(education.startDate) }} -
+            {{ getDateString(education.endDate) }}
+          </div>
+          <div>Grade : {{ education.grade }}</div>
+        </div>
+      </ng-container>
+    </div>
 
     <div class="resume-section">
-      <div class="title">Skills</div>
+      <div class="title title-left-section">Skills</div>
       <ng-container *ngFor="let skill of user.skills">
         <div class="row">
           <div class="skill-name">{{ skill.name }}</div>
@@ -33,7 +67,7 @@
     </div>
 
     <div class="resume-section">
-      <div class="title">Languages</div>
+      <div class="title title-left-section">Languages</div>
       <ng-container *ngFor="let language of user.languages">
         <div class="row">
           <div class="skill-name">{{ language.name }}</div>
@@ -50,11 +84,6 @@
     </div>
   </div>
   <div class="main-section">
-    <div class="personal-info">
-      <div class="name">{{ user.name }}</div>
-      <div *ngIf="user.profession" class="profession">{{ user.profession }}</div>
-    </div>
-
     <div class="resume-section">
       <div class="title">Summary</div>
       <div class="description">{{ user.summary }}</div>
@@ -81,27 +110,12 @@
       </ng-container>
     </div>
 
-    <div class="resume-section">
-      <div class="title">Education</div>
-      <ng-container *ngFor="let education of user.educations">
-        <div class="section-item">
-          <div class="subtitle">{{ education.school }}</div>
-          <div class="subtitle-2">
-            {{ education.degree }} - {{ education.major }}
-          </div>
-          <div class="date-range">
-            {{ getDateString(education.startDate) }} -
-            {{ getDateString(education.endDate) }}
-          </div>
-          <div>Grade : {{ education.grade }}</div>
-        </div>
-      </ng-container>
-    </div>
+    <div class="page-break"></div>
   </div>
   <button class="fab-left" mat-fab color="warn" (click)="goHome()">
-    <mat-icon>arrow_back</mat-icon>
+    <mat-icon class="fab-icon">arrow_back</mat-icon>
   </button>
   <button class="fab" mat-fab color="primary" (click)="save()">
-    <mat-icon>save</mat-icon>
+    <mat-icon class="fab-icon">save</mat-icon>
   </button>
 </div>

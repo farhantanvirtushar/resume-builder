@@ -23,10 +23,11 @@ import { Template2Component } from './templates/template2/template2.component';
 import { Template3Component } from './templates/template3/template3.component';
 import { NgIconsModule } from '@ng-icons/core';
 import  * as bootstrapIcons  from '@ng-icons/bootstrap-icons';
+import { Template4Component } from './templates/template4/template4.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, UpdateProfileComponent, Template1Component, Template2Component, Template3Component],
+  declarations: [AppComponent, HomeComponent, UpdateProfileComponent, Template1Component, Template2Component, Template3Component, Template4Component],
   imports: [
     BrowserModule,
     AppRoutingModule,
