@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +24,7 @@ import { Template3Component } from './templates/template3/template3.component';
 import { NgIconsModule } from '@ng-icons/core';
 import  * as bootstrapIcons  from '@ng-icons/bootstrap-icons';
 import { Template4Component } from './templates/template4/template4.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -45,7 +46,13 @@ import { Template4Component } from './templates/template4/template4.component';
     FormsModule,
     MatTooltipModule,
     MatProgressBarModule,
-    NgIconsModule.withIcons(bootstrapIcons)
+    NgIconsModule.withIcons(bootstrapIcons),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],
