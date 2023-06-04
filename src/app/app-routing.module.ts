@@ -9,7 +9,7 @@ import { Template4Component } from './templates/template4/template4.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent
   },
   {
@@ -33,9 +33,13 @@ const routes: Routes = [
     component: Template4Component
   },
   {
-    path: '',
-    redirectTo: 'home',
+    path: 'home',
+    redirectTo: '',
     pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];
 
