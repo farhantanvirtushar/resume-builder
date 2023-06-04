@@ -25,6 +25,7 @@
     "@capacitor/core": "latest",
     "@ng-icons/bootstrap-icons": "^25.0.1",
     "@ng-icons/core": "^25.0.1",
+    "firebase": "^9.22.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
