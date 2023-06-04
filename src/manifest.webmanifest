@@ -1,6 +1,6 @@
 {
-  "name": "resume-builder",
-  "short_name": "resume-builder",
+  "name": "Resume Builder",
+  "short_name": "Resume Builder",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
